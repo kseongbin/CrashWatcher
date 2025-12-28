@@ -206,5 +206,3 @@ If you have any questions or encounter issues, please create a GitHub Issue.
 - [ ] Performance metrics collection
 
 ---
-
-**Made with ❤️ for Android developers**
