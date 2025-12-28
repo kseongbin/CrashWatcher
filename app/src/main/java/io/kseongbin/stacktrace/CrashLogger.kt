@@ -24,6 +24,9 @@ object CrashLogger {
     @Volatile
     private var isInitialized = false
 
+    @Volatile
+    private var enabled = true
+
     private lateinit var crashDetector: CrashDetector
     private lateinit var anrDetector: AnrDetector
     private lateinit var logWriter: LogWriter
@@ -39,6 +42,7 @@ object CrashLogger {
     fun initialize(context: Context, config: CrashLoggerConfig = CrashLoggerConfig()) {
         if (isInitialized) return
 
+        enabled = config.enabled
         val appContext = context.applicationContext
         logWriter = LogWriter(appContext, config)
 
@@ -80,4 +84,21 @@ object CrashLogger {
 
         isInitialized = false
     }
+
+    /**
+     * CrashLogger 활성화/비활성화 (런타임 제어)
+     *
+     * @param enabled true: 로깅 활성화, false: 로깅 비활성화
+     */
+    @Synchronized
+    fun setEnabled(enabled: Boolean) {
+        this.enabled = enabled
+    }
+
+    /**
+     * CrashLogger 활성화 상태 확인
+     *
+     * @return true: 활성화, false: 비활성화
+     */
+    fun isEnabled(): Boolean = enabled
 }

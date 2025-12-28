@@ -81,6 +81,35 @@ val logDirectory = CrashLogger.getLogDirectory()
 // 위치: {externalFilesDir}/crash_logs/
 ```
 
+### 런타임 제어 (On/Off)
+
+실행 중에 크래시 로깅을 활성화/비활성화할 수 있습니다:
+
+```kotlin
+// 로깅 비활성화 (필요 없을 때)
+CrashLogger.setEnabled(false)
+
+// 추적이 필요할 때 로깅 활성화
+CrashLogger.setEnabled(true)
+
+// 현재 상태 확인
+if (CrashLogger.isEnabled()) {
+    // 로깅이 활성화되어 있음
+}
+```
+
+**권장 방법: BuildConfig 기반 초기화**
+
+```kotlin
+// Debug 빌드에서만 자동으로 활성화
+CrashLogger.initialize(
+    context = this,
+    config = CrashLoggerConfig(
+        enabled = BuildConfig.DEBUG  // Release는 off, Debug는 on
+    )
+)
+```
+
 ## 로그 형식
 
 로그는 아래 형식으로 txt 파일로 저장됩니다:
@@ -121,6 +150,7 @@ Version: 1.0.0 (1)
 
 | 옵션 | 기본값 | 설명 |
 |------|--------|------|
+| `enabled` | `true` | 라이브러리 전체 활성화/비활성화 (런타임 제어 가능) |
 | `enableCrashDetection` | `true` | 크래시 로깅 활성화 |
 | `enableAnrDetection` | `true` | ANR 감지 활성화 |
 | `anrTimeoutMs` | `5000` | ANR 감지 임계값 (밀리초) |
@@ -202,5 +232,3 @@ limitations under the License.
 - [ ] 성능 메트릭 수집
 
 ---
-
-**Made with ❤️ for Android developers**

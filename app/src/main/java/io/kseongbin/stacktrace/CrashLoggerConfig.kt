@@ -4,6 +4,9 @@ package io.kseongbin.stacktrace
  * CrashLogger의 설정 옵션
  */
 data class CrashLoggerConfig(
+    /** CrashLogger 전체 활성화/비활성화 (런타임 제어 가능) */
+    val enabled: Boolean = true,
+
     /** 크래시 감지 활성화 (UncaughtExceptionHandler) */
     val enableCrashDetection: Boolean = true,
 

@@ -85,6 +85,35 @@ val logDirectory = CrashLogger.getLogDirectory()
 // Location: {externalFilesDir}/crash_logs/
 ```
 
+### Runtime Control (On/Off)
+
+Enable or disable crash logging at runtime:
+
+```kotlin
+// Disable logging (e.g., when not needed)
+CrashLogger.setEnabled(false)
+
+// Enable logging when you need to trace
+CrashLogger.setEnabled(true)
+
+// Check current status
+if (CrashLogger.isEnabled()) {
+    // Logging is active
+}
+```
+
+**Best Practice: BuildConfig-based initialization**
+
+```kotlin
+// Automatically enable only in debug builds
+CrashLogger.initialize(
+    context = this,
+    config = CrashLoggerConfig(
+        enabled = BuildConfig.DEBUG  // Off in release, on in debug
+    )
+)
+```
+
 ## Log Format
 
 Logs are saved as text files with the following naming pattern:
@@ -125,6 +154,7 @@ Version: 1.0.0 (1)
 
 | Option | Default | Description |
 |--------|---------|-------------|
+| `enabled` | `true` | Master switch for entire library (runtime controllable) |
 | `enableCrashDetection` | `true` | Enable crash logging |
 | `enableAnrDetection` | `true` | Enable ANR detection |
 | `anrTimeoutMs` | `5000` | ANR detection threshold (milliseconds) |

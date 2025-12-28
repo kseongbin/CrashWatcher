@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.Looper
+import io.kseongbin.stacktrace.CrashLogger
 import io.kseongbin.stacktrace.CrashLoggerConfig
 import io.kseongbin.stacktrace.model.AnrInfo
 import java.util.concurrent.atomic.AtomicLong
@@ -59,6 +60,9 @@ internal class AnrDetector(
 
     private fun detectAnr() {
         try {
+            // Check if CrashLogger is enabled
+            if (!CrashLogger.isEnabled()) return
+
             val mainThread = Looper.getMainLooper().thread
             val anrInfo = AnrInfo(
                 timestamp = System.currentTimeMillis(),
