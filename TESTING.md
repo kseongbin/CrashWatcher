@@ -1,6 +1,6 @@
 # Testing Guide
 
-Complete testing guide for the StackTrace library.
+Testing guide for the StackTrace library.
 
 [한국어 문서](TESTING_KR.md)
 

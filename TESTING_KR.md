@@ -1,6 +1,6 @@
 # 테스트 가이드
 
-StackTrace 라이브러리의 완벽한 테스트 가이드입니다.
+StackTrace 라이브러리의 테스트 가이드입니다.
 
 [English Documentation](TESTING.md)
 
