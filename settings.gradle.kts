@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "StackTraceLibrary"
 include(":app")
+include(":sample")
  

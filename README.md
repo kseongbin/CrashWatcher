@@ -196,6 +196,12 @@ You can optionally stop ANR detection when needed:
 CrashLogger.shutdown()
 ```
 
+## Sample App
+
+A sample Android app is available in the `sample/` directory demonstrating library usage.
+
+See [sample/README.md](sample/README.md) for details.
+
 ## Development & Testing
 
 ### Running Tests

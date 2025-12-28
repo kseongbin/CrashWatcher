@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="StackTrace Library Test App"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvLogPath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log directory: Loading..."
+            android:textSize="12sp"
+            android:paddingBottom="24dp"
+            android:background="#F0F0F0"
+            android:padding="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crash Tests"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnNullPointer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💥 NullPointerException"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnArrayIndex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💥 ArrayIndexOutOfBounds"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnArithmetic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💥 ArithmeticException"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ANR Test"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnAnr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⏱️ Trigger ANR (5 sec freeze)"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log Management"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnViewLogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📄 View Log Files"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnClearLogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🗑️ Clear All Logs"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚠️ Warning: Crash buttons will close the app!"
+            android:textSize="12sp"
+            android:textColor="#FF0000"
+            android:gravity="center"
+            android:paddingTop="16dp" />
+
+    </LinearLayout>
+
+</ScrollView>

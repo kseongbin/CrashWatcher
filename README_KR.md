@@ -192,6 +192,12 @@ Version: 1.0.0 (1)
 CrashLogger.shutdown()
 ```
 
+## 샘플 앱
+
+`sample/` 디렉토리에 라이브러리 사용법을 보여주는 샘플 Android 앱이 포함되어 있습니다.
+
+자세한 내용은 [sample/README.md](sample/README.md)를 참고하세요.
+
 ## 개발 및 테스트
 
 ### 테스트 실행
