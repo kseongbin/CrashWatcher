@@ -20,7 +20,7 @@
 
 ```kotlin
 dependencies {
-    implementation("com.example:crashlogger:1.0.0")
+    implementation("io.kseongbin:stacktrace:1.0.0")
 }
 ```
 
@@ -28,7 +28,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation 'com.example:crashlogger:1.0.0'
+    implementation 'io.kseongbin:stacktrace:1.0.0'
 }
 ```
 

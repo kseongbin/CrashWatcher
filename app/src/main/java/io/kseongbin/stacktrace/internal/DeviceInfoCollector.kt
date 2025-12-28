@@ -1,4 +1,4 @@
-package com.example.stacktracelibrary.internal
+package io.kseongbin.stacktrace.internal
 
 import android.app.ActivityManager
 import android.content.Context
@@ -6,8 +6,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Environment
 import android.os.StatFs
-import com.example.stacktracelibrary.model.AppInfo
-import com.example.stacktracelibrary.model.DeviceInfo
+import io.kseongbin.stacktrace.model.AppInfo
+import io.kseongbin.stacktrace.model.DeviceInfo
 
 internal class DeviceInfoCollector(private val context: Context) {
 

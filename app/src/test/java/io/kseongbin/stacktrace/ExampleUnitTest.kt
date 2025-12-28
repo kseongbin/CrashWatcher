@@ -1,4 +1,4 @@
-package com.example.stacktracelibrary
+package io.kseongbin.stacktrace
 
 import org.junit.Test
 

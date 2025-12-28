@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.stacktracelibrary"
+    namespace = "io.kseongbin.stacktrace"
     compileSdk = 36
 
     defaultConfig {

@@ -1,9 +1,9 @@
-package com.example.stacktracelibrary.internal
+package io.kseongbin.stacktrace.internal
 
 import android.content.Context
-import com.example.stacktracelibrary.CrashLoggerConfig
-import com.example.stacktracelibrary.model.AnrInfo
-import com.example.stacktracelibrary.model.CrashInfo
+import io.kseongbin.stacktrace.CrashLoggerConfig
+import io.kseongbin.stacktrace.model.AnrInfo
+import io.kseongbin.stacktrace.model.CrashInfo
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date

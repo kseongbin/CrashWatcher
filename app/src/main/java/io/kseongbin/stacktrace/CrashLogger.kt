@@ -1,9 +1,9 @@
-package com.example.stacktracelibrary
+package io.kseongbin.stacktrace
 
 import android.content.Context
-import com.example.stacktracelibrary.internal.AnrDetector
-import com.example.stacktracelibrary.internal.CrashDetector
-import com.example.stacktracelibrary.internal.LogWriter
+import io.kseongbin.stacktrace.internal.AnrDetector
+import io.kseongbin.stacktrace.internal.CrashDetector
+import io.kseongbin.stacktrace.internal.LogWriter
 import java.io.File
 
 /**

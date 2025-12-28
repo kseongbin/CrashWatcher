@@ -1,9 +1,9 @@
-package com.example.stacktracelibrary.internal
+package io.kseongbin.stacktrace.internal
 
-import com.example.stacktracelibrary.model.AnrInfo
-import com.example.stacktracelibrary.model.AppInfo
-import com.example.stacktracelibrary.model.CrashInfo
-import com.example.stacktracelibrary.model.DeviceInfo
+import io.kseongbin.stacktrace.model.AnrInfo
+import io.kseongbin.stacktrace.model.AppInfo
+import io.kseongbin.stacktrace.model.CrashInfo
+import io.kseongbin.stacktrace.model.DeviceInfo
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

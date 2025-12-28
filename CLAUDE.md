@@ -47,12 +47,12 @@ Android application built with Kotlin and Jetpack Compose. The project uses Andr
 
 **Run specific test class**:
 ```bash
-./gradlew test --tests com.example.stacktracelibrary.ExampleUnitTest
+./gradlew test --tests io.kseongbin.stacktrace.ExampleUnitTest
 ```
 
 **Run instrumented test class**:
 ```bash
-./gradlew connectedAndroidTest --tests com.example.stacktracelibrary.ExampleInstrumentedTest
+./gradlew connectedAndroidTest --tests io.kseongbin.stacktrace.ExampleInstrumentedTest
 ```
 
 ## Code Quality
@@ -71,8 +71,8 @@ Android application built with Kotlin and Jetpack Compose. The project uses Andr
 - Single activity architecture with `MainActivity` as the entry point
 
 **Package Structure**:
-- `com.example.stacktracelibrary` - Main application code
-- `com.example.stacktracelibrary.ui.theme` - Compose theme components
+- `io.kseongbin.stacktrace` - Main application code
+- `io.kseongbin.stacktrace.ui.theme` - Compose theme components
 
 **Java/Kotlin Compatibility**: Java 11 target for both source and target compatibility
 
@@ -80,7 +80,7 @@ Android application built with Kotlin and Jetpack Compose. The project uses Andr
 
 ## Development Notes
 
-**Namespace**: `com.example.stacktracelibrary`
+**Namespace**: `io.kseongbin.stacktrace`
 
 **Min SDK**: API 26 (Android 8.0)
 **Target SDK**: API 36

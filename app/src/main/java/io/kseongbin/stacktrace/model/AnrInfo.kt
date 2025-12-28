@@ -1,4 +1,4 @@
-package com.example.stacktracelibrary.model
+package io.kseongbin.stacktrace.model
 
 internal data class AnrInfo(
     val timestamp: Long,

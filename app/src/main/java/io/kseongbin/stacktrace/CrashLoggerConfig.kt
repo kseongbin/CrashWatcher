@@ -1,4 +1,4 @@
-package com.example.stacktracelibrary
+package io.kseongbin.stacktrace
 
 /**
  * CrashLogger의 설정 옵션

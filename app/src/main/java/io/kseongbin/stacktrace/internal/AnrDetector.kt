@@ -1,11 +1,11 @@
-package com.example.stacktracelibrary.internal
+package io.kseongbin.stacktrace.internal
 
 import android.content.Context
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.Looper
-import com.example.stacktracelibrary.CrashLoggerConfig
-import com.example.stacktracelibrary.model.AnrInfo
+import io.kseongbin.stacktrace.CrashLoggerConfig
+import io.kseongbin.stacktrace.model.AnrInfo
 import java.util.concurrent.atomic.AtomicLong
 
 internal class AnrDetector(

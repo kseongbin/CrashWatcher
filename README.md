@@ -24,7 +24,7 @@ A lightweight Android library that automatically detects and logs crashes and AN
 
 ```kotlin
 dependencies {
-    implementation("com.example:crashlogger:1.0.0")
+    implementation("io.kseongbin:stacktrace:1.0.0")
 }
 ```
 
@@ -32,7 +32,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation 'com.example:crashlogger:1.0.0'
+    implementation 'io.kseongbin:stacktrace:1.0.0'
 }
 ```
 
