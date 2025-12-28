@@ -1,18 +1,24 @@
 # CrashLogger - Android Crash & ANR Detection Library
 
-안드로이드 앱의 크래시와 ANR(Application Not Responding)을 감지하고 로그를 자동으로 저장하는 경량 라이브러리입니다.
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com)
+[![Min SDK](https://img.shields.io/badge/Min%20SDK-26-orange.svg)](https://developer.android.com/about/versions/oreo)
 
-## 주요 기능
+A lightweight Android library that automatically detects and logs crashes and ANRs (Application Not Responding) with detailed stack traces and device information.
 
-- **크래시 감지**: 모든 미처리 예외를 자동으로 캡처하여 상세한 스택트레이스 저장
-- **ANR 감지**: Watchdog 방식으로 메인 스레드 응답성 모니터링
-- **권한 불필요**: 앱 전용 외부 저장소 사용 (getExternalFilesDir)
-- **자동 로그 로테이션**: 설정 가능한 최대 파일 수 유지
-- **상세한 메타데이터**: 디바이스 정보, 앱 버전, 스레드 상태 등 자동 수집
-- **스레드 안전**: 동시성 상황에서도 안전한 로그 작성
-- **경량**: 최소한의 의존성, 작은 APK 용량
+[한국어 문서](README_KR.md)
 
-## 설치
+## Features
+
+- **Crash Detection**: Automatically captures all uncaught exceptions with detailed stack traces
+- **ANR Detection**: Monitors main thread responsiveness using watchdog pattern
+- **No Permissions Required**: Uses app-specific external storage (`getExternalFilesDir`)
+- **Automatic Log Rotation**: Maintains configurable maximum number of log files
+- **Rich Metadata**: Automatically collects device info, app version, thread states, and more
+- **Thread-Safe**: Safe log writing in concurrent environments
+- **Lightweight**: Minimal dependencies and small APK footprint
+
+## Installation
 
 ### Gradle (Kotlin DSL)
 
@@ -30,11 +36,11 @@ dependencies {
 }
 ```
 
-## 사용법
+## Quick Start
 
-### 기본 초기화
+### Basic Initialization
 
-`Application` 클래스에서 초기화:
+Initialize in your `Application` class:
 
 ```kotlin
 class MyApplication : Application() {
@@ -45,7 +51,16 @@ class MyApplication : Application() {
 }
 ```
 
-### 커스텀 설정
+Don't forget to declare your `Application` class in `AndroidManifest.xml`:
+
+```xml
+<application
+    android:name=".MyApplication"
+    ...>
+</application>
+```
+
+### Custom Configuration
 
 ```kotlin
 CrashLogger.initialize(
@@ -53,8 +68,8 @@ CrashLogger.initialize(
     config = CrashLoggerConfig(
         enableCrashDetection = true,
         enableAnrDetection = true,
-        anrTimeoutMs = 3000L,        // 3초
-        maxLogFiles = 20,            // 최근 20개 로그 유지
+        anrTimeoutMs = 3000L,        // 3 seconds
+        maxLogFiles = 20,            // Keep recent 20 logs
         logFilePrefix = "myapp_log",
         includeDeviceInfo = true,
         includeAppInfo = true,
@@ -63,23 +78,23 @@ CrashLogger.initialize(
 )
 ```
 
-### 로그 파일 접근
+### Accessing Log Files
 
 ```kotlin
 val logDirectory = CrashLogger.getLogDirectory()
-// 위치: {externalFilesDir}/crash_logs/
+// Location: {externalFilesDir}/crash_logs/
 ```
 
-## 로그 형식
+## Log Format
 
-로그는 아래 형식으로 txt 파일로 저장됩니다:
+Logs are saved as text files with the following naming pattern:
 
 ```
-crash_log_crash_20251228_153045.txt  // 크래시 로그
-crash_log_anr_20251228_153112.txt    // ANR 로그
+crash_log_crash_20251228_153045.txt  // Crash log
+crash_log_anr_20251228_153112.txt    // ANR log
 ```
 
-### 크래시 로그 예시
+### Sample Crash Log
 
 ```
 === CRASH LOG ===
@@ -106,51 +121,90 @@ Version: 1.0.0 (1)
 ...
 ```
 
-## 설정 옵션
+## Configuration Options
 
-| 옵션 | 기본값 | 설명 |
-|------|--------|------|
-| `enableCrashDetection` | `true` | 크래시 로깅 활성화 |
-| `enableAnrDetection` | `true` | ANR 감지 활성화 |
-| `anrTimeoutMs` | `5000` | ANR 감지 임계값 (밀리초) |
-| `maxLogFiles` | `10` | 보관할 최대 로그 파일 수 |
-| `logFilePrefix` | `"crash_log"` | 로그 파일명 접두사 |
-| `includeDeviceInfo` | `true` | 디바이스 메타데이터 포함 |
-| `includeAppInfo` | `true` | 앱 버전 정보 포함 |
-| `includeThreadInfo` | `true` | 모든 스레드 덤프 포함 (ANR) |
+| Option | Default | Description |
+|--------|---------|-------------|
+| `enableCrashDetection` | `true` | Enable crash logging |
+| `enableAnrDetection` | `true` | Enable ANR detection |
+| `anrTimeoutMs` | `5000` | ANR detection threshold (milliseconds) |
+| `maxLogFiles` | `10` | Maximum number of log files to keep |
+| `logFilePrefix` | `"crash_log"` | Prefix for log file names |
+| `includeDeviceInfo` | `true` | Include device metadata |
+| `includeAppInfo` | `true` | Include app version info |
+| `includeThreadInfo` | `true` | Include all thread dumps (for ANR) |
 
-## 시스템 요구사항
+## Requirements
 
 - **Min SDK**: 26 (Android 8.0 Oreo)
 - **Target SDK**: 36
-- **권한**: 불필요
+- **Permissions**: None required
 
-## 동작 원리
+## How It Works
 
-### 크래시 감지
-- `Thread.UncaughtExceptionHandler` 구현
-- 기존 핸들러로 체이닝하여 정상적인 크래시 동작 유지
-- 앱 종료 전에 동기식으로 로그 작성
+### Crash Detection
+- Implements `Thread.UncaughtExceptionHandler`
+- Chains with existing handler to maintain normal crash behavior
+- Writes logs synchronously before app termination
 
-### ANR 감지
-- Watchdog 스레드가 메인 스레드에 tick 업데이트 요청
-- 타임아웃 내에 응답이 없으면 ANR 감지
-- 메인 스레드 스택트레이스 + 모든 스레드 덤프 캡처
+### ANR Detection
+- Watchdog thread requests tick updates from main thread
+- Detects ANR if no response within timeout period
+- Captures main thread stack trace + all thread dumps
 
-## 스레드 안전성
+## Thread Safety
 
-- 모든 로그 쓰기는 synchronized
-- ANR watchdog은 atomic counter 사용
-- 멀티스레드 환경에서 안전
+- All log writes are synchronized
+- ANR watchdog uses atomic counters
+- Safe in multi-threaded environments
 
-## 라이선스
+## Shutdown (Optional)
 
-Apache License 2.0
+You can optionally stop ANR detection when needed:
 
-## 기여하기
+```kotlin
+CrashLogger.shutdown()
+```
 
-이슈 제보나 Pull Request는 언제나 환영합니다!
+## License
 
-## 지원
+```
+Copyright 2025 Seongbin Kim
 
-문제가 있거나 질문이 있으시면 GitHub Issue를 생성해주세요.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+## Contributing
+
+Issues and Pull Requests are always welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Support
+
+If you have any questions or encounter issues, please create a GitHub Issue.
+
+## Roadmap
+
+- [ ] Remote crash reporting integration
+- [ ] Custom crash callbacks
+- [ ] Proguard/R8 mapping support
+- [ ] Performance metrics collection
+
+---
+
+**Made with ❤️ for Android developers**
