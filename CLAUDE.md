@@ -4,29 +4,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Android application built with Kotlin and Jetpack Compose. The project uses Android Gradle Plugin 8.12.3, Kotlin 2.0.21, and targets Android API 36 (minimum API 26).
+**Android Crash & ANR Detection Library** built with Kotlin. This is a library module (not an app) that automatically detects and logs crashes and ANRs with detailed stack traces.
+
+- **Package**: `io.kseongbin.stacktrace`
+- **Version**: 1.0.0
+- **Min SDK**: API 26 (Android 8.0 Oreo)
+- **Target SDK**: API 36
+- **Java**: Version 17
+- **Kotlin**: 2.0.21
+- **AGP**: 8.12.3
 
 ## Build System
 
-**Gradle Version Catalog**: Dependencies are managed via `gradle/libs.versions.toml` using Gradle version catalogs.
+**Gradle Version Catalog**: Dependencies are managed via `gradle/libs.versions.toml`.
 
-**Build Commands**:
+**Build Library (AAR)**:
 ```bash
-# Build the app
-./gradlew build
-
-# Clean build
+# Build both debug and release AAR
 ./gradlew clean build
 
-# Build debug APK
-./gradlew assembleDebug
-
-# Build release APK
+# Build release AAR only
 ./gradlew assembleRelease
 
-# Install on connected device/emulator
-./gradlew installDebug
+# Build debug AAR only
+./gradlew assembleDebug
 ```
+
+**Output**: `app/build/outputs/aar/`
+- `stacktrace-debug-1.0.0.aar`
+- `stacktrace-release-1.0.0.aar`
 
 ## Testing
 
@@ -35,7 +41,7 @@ Android application built with Kotlin and Jetpack Compose. The project uses Andr
 ./gradlew test
 ```
 
-**Run unit tests only**:
+**Run unit tests**:
 ```bash
 ./gradlew testDebugUnitTest
 ```
@@ -45,56 +51,66 @@ Android application built with Kotlin and Jetpack Compose. The project uses Andr
 ./gradlew connectedAndroidTest
 ```
 
-**Run specific test class**:
-```bash
-./gradlew test --tests io.kseongbin.stacktrace.ExampleUnitTest
-```
-
-**Run instrumented test class**:
-```bash
-./gradlew connectedAndroidTest --tests io.kseongbin.stacktrace.ExampleInstrumentedTest
-```
-
-## Code Quality
-
 **Lint checks**:
 ```bash
 ./gradlew lint
-./gradlew lintDebug
 ```
 
-## Architecture
+## Library Structure
 
-**UI Framework**: Jetpack Compose with Material3
-- Main composables are in `app/src/main/java/com/example/stacktracelibrary/`
-- Theme configuration in `ui/theme/` (Color.kt, Theme.kt, Type.kt)
-- Single activity architecture with `MainActivity` as the entry point
+```
+io.kseongbin.stacktrace/
+├── CrashLogger.kt              # Main entry point
+├── CrashLoggerConfig.kt        # Configuration options
+├── internal/
+│   ├── CrashDetector.kt        # UncaughtExceptionHandler
+│   ├── AnrDetector.kt          # Watchdog for ANR detection
+│   ├── LogWriter.kt            # File I/O operations
+│   ├── LogFormatter.kt         # Log formatting
+│   └── DeviceInfoCollector.kt  # Device metadata collection
+└── model/
+    ├── CrashInfo.kt
+    ├── AnrInfo.kt
+    ├── DeviceInfo.kt
+    └── AppInfo.kt
+```
 
-**Package Structure**:
-- `io.kseongbin.stacktrace` - Main application code
-- `io.kseongbin.stacktrace.ui.theme` - Compose theme components
+## Key Features
 
-**Java/Kotlin Compatibility**: Java 11 target for both source and target compatibility
+1. **Runtime On/Off Control**: `CrashLogger.setEnabled(true/false)`
+2. **BuildConfig Integration**: Auto-disable in release builds
+3. **No Permissions Required**: Uses `getExternalFilesDir()`
+4. **Thread-Safe**: Synchronized logging operations
+5. **ProGuard Rules**: Auto-applied via `consumer-rules.pro`
 
-**Compose Compiler**: Kotlin Compose plugin 2.0.21 with compose BOM 2024.09.00
+## ProGuard Configuration
 
-## Development Notes
+**Library does NOT minify** (minifyEnabled = false) - user apps handle minification.
 
-**Namespace**: `io.kseongbin.stacktrace`
+**Consumer ProGuard Rules** (`app/consumer-rules.pro`):
+- Automatically applied to apps using this library
+- Preserves public API and stack trace information
+- No manual configuration needed by library users
 
-**Min SDK**: API 26 (Android 8.0)
-**Target SDK**: API 36
-**Compile SDK**: API 36
+## Version Management
 
-**ProGuard**: Currently disabled for release builds (can be enabled in `app/build.gradle.kts`)
+Update version in `app/build.gradle.kts`:
+```kotlin
+defaultConfig {
+    version = "1.0.0"  // Update here
+}
+```
 
-**Edge-to-Edge Display**: The app uses `enableEdgeToEdge()` for modern Android UI
+AAR filename will automatically update to `stacktrace-{buildType}-{version}.aar`
 
-## Adding Dependencies
+## Branch Protection
 
-Add new dependencies to `gradle/libs.versions.toml`:
-1. Define version in `[versions]` section
-2. Add library in `[libraries]` section
-3. Reference in `app/build.gradle.kts` using `libs.` prefix
+- **main** branch is protected
+- Pull requests required for collaborators
+- Owner can bypass (for convenience)
 
-Example: `implementation(libs.androidx.core.ktx)`
+## Documentation
+
+- `README.md` - English documentation
+- `README_KR.md` - Korean documentation
+- Both include usage examples, API reference, and configuration options
