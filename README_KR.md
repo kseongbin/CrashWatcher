@@ -192,6 +192,34 @@ Version: 1.0.0 (1)
 CrashLogger.shutdown()
 ```
 
+## 개발 및 테스트
+
+### 테스트 실행
+
+```bash
+./gradlew test
+```
+
+테스트 리포트 확인:
+```bash
+open app/build/reports/tests/testDebugUnitTest/index.html
+```
+
+**테스트 커버리지**: 33개 단위 테스트 (100% 통과)
+
+자세한 테스트 가이드 및 예시는 [TESTING.md](TESTING.md)를 참고하세요.
+
+### 라이브러리 빌드
+
+**Release AAR 빌드**:
+```bash
+./gradlew assembleRelease
+```
+
+**출력 위치**: `app/build/outputs/aar/`
+- `stacktrace-debug-1.0.0.aar`
+- `stacktrace-release-1.0.0.aar`
+
 ## 라이선스
 
 ```

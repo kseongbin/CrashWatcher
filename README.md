@@ -196,6 +196,34 @@ You can optionally stop ANR detection when needed:
 CrashLogger.shutdown()
 ```
 
+## Development & Testing
+
+### Running Tests
+
+```bash
+./gradlew test
+```
+
+View test reports:
+```bash
+open app/build/reports/tests/testDebugUnitTest/index.html
+```
+
+**Test Coverage**: 33 unit tests (100% passing)
+
+For detailed testing guide and examples, see [TESTING.md](TESTING.md)
+
+### Building the Library
+
+**Release AAR build**:
+```bash
+./gradlew assembleRelease
+```
+
+**Output location**: `app/build/outputs/aar/`
+- `stacktrace-debug-1.0.0.aar`
+- `stacktrace-release-1.0.0.aar`
+
 ## License
 
 ```
