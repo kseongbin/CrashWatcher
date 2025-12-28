@@ -23,3 +23,18 @@ local.properties
 .idea/
 *.swp
 *.swo
+
+# Claude Code settings
+.claude/settings.local.json
+
+# Android security
+*.keystore
+*.jks
+keystore.properties
+google-services.json
+
+# API keys and secrets
+**/secrets.properties
+**/api-keys.properties
+**/*secret*
+**/*Secret*
