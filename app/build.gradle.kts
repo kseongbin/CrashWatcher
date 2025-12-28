@@ -11,6 +11,8 @@ android {
         minSdk = 26
         targetSdk = 36
 
+        version = "1.0.0"
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -25,11 +27,22 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
+    }
+
+    libraryVariants.all {
+        outputs.all {
+            val outputImpl = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+            val libraryName = "stacktrace"
+            val version = "1.0.0"
+            val buildType = this.name
+
+            outputImpl.outputFileName = "${libraryName}-${buildType}-${version}.aar"
+        }
     }
 }
 
