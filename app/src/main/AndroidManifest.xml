@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 라이브러리 manifest - application 요소 불필요 -->
+    <!-- 권한은 사용자 앱에서 필요시 선언 -->
+</manifest>
