@@ -3,25 +3,17 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
+val libraryVersion = "1.0.0"
+
 android {
     namespace = "io.kseongbin.stacktrace"
     compileSdk = 36
 
     defaultConfig {
         minSdk = 26
-
-        version = "1.0.0"
-
+        version = libraryVersion
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-    }
-
-    testOptions {
-        targetSdk = 36
-    }
-
-    lint {
-        targetSdk = 36
     }
 
     buildTypes {
@@ -45,10 +37,9 @@ android {
         outputs.all {
             val outputImpl = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
             val libraryName = "stacktrace"
-            val version = "1.0.0"
             val buildType = this.name
 
-            outputImpl.outputFileName = "${libraryName}-${buildType}-${version}.aar"
+            outputImpl.outputFileName = "${libraryName}-${buildType}-${libraryVersion}.aar"
         }
     }
 }
