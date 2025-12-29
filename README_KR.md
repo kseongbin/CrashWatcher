@@ -16,19 +16,61 @@
 
 ## 설치
 
-### Gradle (Kotlin DSL)
+### 1단계: JitPack 저장소 추가
+
+`settings.gradle.kts`에 JitPack 저장소를 추가하세요:
 
 ```kotlin
-dependencies {
-    implementation("io.kseongbin:stacktrace:1.0.0")
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
 }
 ```
 
-### Gradle (Groovy)
+또는 구버전 프로젝트 구조를 사용하는 경우, 루트 `build.gradle.kts`에 추가:
+
+```kotlin
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+### 2단계: 의존성 추가
+
+**Gradle (Kotlin DSL)**
+
+```kotlin
+dependencies {
+    implementation("com.github.kseongbin:StackTraceLibrary:1.0.0")
+}
+```
+
+**Gradle (Groovy)**
 
 ```groovy
 dependencies {
-    implementation 'io.kseongbin:stacktrace:1.0.0'
+    implementation 'com.github.kseongbin:StackTraceLibrary:1.0.0'
+}
+```
+
+### 대안: 수동 AAR 설치
+
+[Releases](https://github.com/kseongbin/StackTraceLibrary/releases)에서 최신 AAR을 다운로드하여 프로젝트에 추가:
+
+1. `stacktrace-release-1.0.0.aar` 다운로드
+2. `app/libs/` 디렉터리에 파일 배치
+3. 의존성 추가:
+
+```kotlin
+dependencies {
+    implementation(files("libs/stacktrace-release-1.0.0.aar"))
 }
 ```
 

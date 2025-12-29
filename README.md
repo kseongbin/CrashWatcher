@@ -20,19 +20,61 @@ A lightweight Android library that automatically detects and logs crashes and AN
 
 ## Installation
 
-### Gradle (Kotlin DSL)
+### Step 1: Add JitPack repository
+
+Add JitPack repository to your `settings.gradle.kts`:
 
 ```kotlin
-dependencies {
-    implementation("io.kseongbin:stacktrace:1.0.0")
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
 }
 ```
 
-### Gradle (Groovy)
+Or if you're using older project structure, add to root `build.gradle.kts`:
+
+```kotlin
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+### Step 2: Add dependency
+
+**Gradle (Kotlin DSL)**
+
+```kotlin
+dependencies {
+    implementation("com.github.kseongbin:StackTraceLibrary:1.0.0")
+}
+```
+
+**Gradle (Groovy)**
 
 ```groovy
 dependencies {
-    implementation 'io.kseongbin:stacktrace:1.0.0'
+    implementation 'com.github.kseongbin:StackTraceLibrary:1.0.0'
+}
+```
+
+### Alternative: Manual AAR Installation
+
+Download the latest AAR from [Releases](https://github.com/kseongbin/StackTraceLibrary/releases) and add to your project:
+
+1. Download `stacktrace-release-1.0.0.aar`
+2. Place it in `app/libs/` directory
+3. Add dependency:
+
+```kotlin
+dependencies {
+    implementation(files("libs/stacktrace-release-1.0.0.aar"))
 }
 ```
 
