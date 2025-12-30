@@ -1,12 +1,12 @@
-package io.kseongbin.stacktrace.internal
+package io.kseongbin.crashwatcher.internal
 
 import android.content.Context
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.Looper
-import io.kseongbin.stacktrace.CrashLogger
-import io.kseongbin.stacktrace.CrashLoggerConfig
-import io.kseongbin.stacktrace.model.AnrInfo
+import io.kseongbin.crashwatcher.CrashLogger
+import io.kseongbin.crashwatcher.CrashLoggerConfig
+import io.kseongbin.crashwatcher.model.AnrInfo
 import java.util.concurrent.atomic.AtomicLong
 
 internal class AnrDetector(

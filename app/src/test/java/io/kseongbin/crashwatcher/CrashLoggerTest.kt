@@ -1,4 +1,4 @@
-package io.kseongbin.stacktrace
+package io.kseongbin.crashwatcher
 
 import android.app.Application
 import org.junit.After

@@ -1,8 +1,8 @@
-package io.kseongbin.stacktrace.sample
+package io.kseongbin.crashwatcher.sample
 
 import android.app.Application
-import io.kseongbin.stacktrace.CrashLogger
-import io.kseongbin.stacktrace.CrashLoggerConfig
+import io.kseongbin.crashwatcher.CrashLogger
+import io.kseongbin.crashwatcher.CrashLoggerConfig
 
 class SampleApp : Application() {
     override fun onCreate() {

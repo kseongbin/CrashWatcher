@@ -1,9 +1,9 @@
-package io.kseongbin.stacktrace.internal
+package io.kseongbin.crashwatcher.internal
 
 import android.content.Context
-import io.kseongbin.stacktrace.CrashLogger
-import io.kseongbin.stacktrace.CrashLoggerConfig
-import io.kseongbin.stacktrace.model.CrashInfo
+import io.kseongbin.crashwatcher.CrashLogger
+import io.kseongbin.crashwatcher.CrashLoggerConfig
+import io.kseongbin.crashwatcher.model.CrashInfo
 
 internal class CrashDetector(
     private val context: Context,

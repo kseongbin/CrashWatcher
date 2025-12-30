@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "io.kseongbin.stacktrace.sample"
+    namespace = "io.kseongbin.crashwatcher.sample"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "io.kseongbin.stacktrace.sample"
+        applicationId = "io.kseongbin.crashwatcher.sample"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

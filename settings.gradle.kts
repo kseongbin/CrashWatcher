@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "StackTraceLibrary"
+rootProject.name = "CrashWatcher"
 include(":app")
 include(":sample")
  

@@ -1,4 +1,4 @@
-package io.kseongbin.stacktrace.sample
+package io.kseongbin.crashwatcher.sample
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import io.kseongbin.stacktrace.CrashLogger
+import io.kseongbin.crashwatcher.CrashLogger
 import java.io.File
 
 class MainActivity : AppCompatActivity() {

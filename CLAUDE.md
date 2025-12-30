@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Android Crash & ANR Detection Library** built with Kotlin. This is a library module (not an app) that automatically detects and logs crashes and ANRs with detailed stack traces.
 
-- **Package**: `io.kseongbin.stacktrace`
+- **Package**: `io.kseongbin.crashwatcher`
 - **Version**: 1.0.0
 - **Min SDK**: API 26 (Android 8.0 Oreo)
 - **Target SDK**: API 36
@@ -31,8 +31,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 
 **Output**: `app/build/outputs/aar/`
-- `stacktrace-debug-1.0.0.aar`
-- `stacktrace-release-1.0.0.aar`
+- `crashwatcher-debug-1.0.0.aar`
+- `crashwatcher-release-1.0.0.aar`
 
 ## Testing
 
@@ -59,7 +59,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Library Structure
 
 ```
-io.kseongbin.stacktrace/
+io.kseongbin.crashwatcher/
 ├── CrashLogger.kt              # Main entry point
 ├── CrashLoggerConfig.kt        # Configuration options
 ├── internal/
@@ -101,7 +101,7 @@ defaultConfig {
 }
 ```
 
-AAR filename will automatically update to `stacktrace-{buildType}-{version}.aar`
+AAR filename will automatically update to `crashwatcher-{buildType}-{version}.aar`
 
 ## Branch Protection
 

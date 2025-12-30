@@ -1,9 +1,9 @@
-package io.kseongbin.stacktrace.internal
+package io.kseongbin.crashwatcher.internal
 
 import android.content.Context
-import io.kseongbin.stacktrace.CrashLoggerConfig
-import io.kseongbin.stacktrace.model.AnrInfo
-import io.kseongbin.stacktrace.model.CrashInfo
+import io.kseongbin.crashwatcher.CrashLoggerConfig
+import io.kseongbin.crashwatcher.model.AnrInfo
+import io.kseongbin.crashwatcher.model.CrashInfo
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date

@@ -48,7 +48,7 @@ allprojects {
 
 ```kotlin
 dependencies {
-    implementation("com.github.kseongbin:StackTraceLibrary:1.0.0")
+    implementation("com.github.kseongbin:CrashWatcher:1.0.0")
 }
 ```
 
@@ -56,21 +56,21 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation 'com.github.kseongbin:StackTraceLibrary:1.0.0'
+    implementation 'com.github.kseongbin:CrashWatcher:1.0.0'
 }
 ```
 
 ### 대안: 수동 AAR 설치
 
-[Releases](https://github.com/kseongbin/StackTraceLibrary/releases)에서 최신 AAR을 다운로드하여 프로젝트에 추가:
+[Releases](https://github.com/kseongbin/CrashWatcher/releases)에서 최신 AAR을 다운로드하여 프로젝트에 추가:
 
-1. `stacktrace-release-1.0.0.aar` 다운로드
+1. `crashwatcher-release-1.0.0.aar` 다운로드
 2. `app/libs/` 디렉터리에 파일 배치
 3. 의존성 추가:
 
 ```kotlin
 dependencies {
-    implementation(files("libs/stacktrace-release-1.0.0.aar"))
+    implementation(files("libs/crashwatcher-release-1.0.0.aar"))
 }
 ```
 
@@ -265,8 +265,8 @@ open app/build/reports/tests/testDebugUnitTest/index.html
 ```
 
 **출력 위치**: `app/build/outputs/aar/`
-- `stacktrace-debug-1.0.0.aar`
-- `stacktrace-release-1.0.0.aar`
+- `crashwatcher-debug-1.0.0.aar`
+- `crashwatcher-release-1.0.0.aar`
 
 ## 라이선스
 

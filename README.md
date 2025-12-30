@@ -52,7 +52,7 @@ allprojects {
 
 ```kotlin
 dependencies {
-    implementation("com.github.kseongbin:StackTraceLibrary:1.0.0")
+    implementation("com.github.kseongbin:CrashWatcher:1.0.0")
 }
 ```
 
@@ -60,21 +60,21 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation 'com.github.kseongbin:StackTraceLibrary:1.0.0'
+    implementation 'com.github.kseongbin:CrashWatcher:1.0.0'
 }
 ```
 
 ### Alternative: Manual AAR Installation
 
-Download the latest AAR from [Releases](https://github.com/kseongbin/StackTraceLibrary/releases) and add to your project:
+Download the latest AAR from [Releases](https://github.com/kseongbin/CrashWatcher/releases) and add to your project:
 
-1. Download `stacktrace-release-1.0.0.aar`
+1. Download `crashwatcher-release-1.0.0.aar`
 2. Place it in `app/libs/` directory
 3. Add dependency:
 
 ```kotlin
 dependencies {
-    implementation(files("libs/stacktrace-release-1.0.0.aar"))
+    implementation(files("libs/crashwatcher-release-1.0.0.aar"))
 }
 ```
 
@@ -269,8 +269,8 @@ For detailed testing guide and examples, see [TESTING.md](TESTING.md)
 ```
 
 **Output location**: `app/build/outputs/aar/`
-- `stacktrace-debug-1.0.0.aar`
-- `stacktrace-release-1.0.0.aar`
+- `crashwatcher-debug-1.0.0.aar`
+- `crashwatcher-release-1.0.0.aar`
 
 ## License
 

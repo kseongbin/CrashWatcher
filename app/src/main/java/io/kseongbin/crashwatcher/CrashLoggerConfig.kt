@@ -1,4 +1,4 @@
-package io.kseongbin.stacktrace
+package io.kseongbin.crashwatcher
 
 /**
  * CrashLogger의 설정 옵션

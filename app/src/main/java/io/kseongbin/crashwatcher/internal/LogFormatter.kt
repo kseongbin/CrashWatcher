@@ -1,9 +1,9 @@
-package io.kseongbin.stacktrace.internal
+package io.kseongbin.crashwatcher.internal
 
-import io.kseongbin.stacktrace.model.AnrInfo
-import io.kseongbin.stacktrace.model.AppInfo
-import io.kseongbin.stacktrace.model.CrashInfo
-import io.kseongbin.stacktrace.model.DeviceInfo
+import io.kseongbin.crashwatcher.model.AnrInfo
+import io.kseongbin.crashwatcher.model.AppInfo
+import io.kseongbin.crashwatcher.model.CrashInfo
+import io.kseongbin.crashwatcher.model.DeviceInfo
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

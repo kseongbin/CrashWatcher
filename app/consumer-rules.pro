@@ -5,8 +5,8 @@
 -keepattributes Exceptions
 
 # CrashLogger Public API 보존
--keep class io.kseongbin.stacktrace.CrashLogger { *; }
--keep class io.kseongbin.stacktrace.CrashLoggerConfig { *; }
+-keep class io.kseongbin.crashwatcher.CrashLogger { *; }
+-keep class io.kseongbin.crashwatcher.CrashLoggerConfig { *; }
 
 # Model 클래스 보존 (로그 데이터 직렬화용)
--keep class io.kseongbin.stacktrace.model.** { *; }
+-keep class io.kseongbin.crashwatcher.model.** { *; }

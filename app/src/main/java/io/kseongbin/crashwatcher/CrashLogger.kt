@@ -1,9 +1,9 @@
-package io.kseongbin.stacktrace
+package io.kseongbin.crashwatcher
 
 import android.content.Context
-import io.kseongbin.stacktrace.internal.AnrDetector
-import io.kseongbin.stacktrace.internal.CrashDetector
-import io.kseongbin.stacktrace.internal.LogWriter
+import io.kseongbin.crashwatcher.internal.AnrDetector
+import io.kseongbin.crashwatcher.internal.CrashDetector
+import io.kseongbin.crashwatcher.internal.LogWriter
 import java.io.File
 
 /**

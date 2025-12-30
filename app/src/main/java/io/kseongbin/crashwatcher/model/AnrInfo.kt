@@ -1,4 +1,4 @@
-package io.kseongbin.stacktrace.model
+package io.kseongbin.crashwatcher.model
 
 internal data class AnrInfo(
     val timestamp: Long,

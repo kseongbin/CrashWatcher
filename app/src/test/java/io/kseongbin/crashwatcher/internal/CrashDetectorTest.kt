@@ -1,8 +1,8 @@
-package io.kseongbin.stacktrace.internal
+package io.kseongbin.crashwatcher.internal
 
 import android.app.Application
-import io.kseongbin.stacktrace.CrashLogger
-import io.kseongbin.stacktrace.CrashLoggerConfig
+import io.kseongbin.crashwatcher.CrashLogger
+import io.kseongbin.crashwatcher.CrashLoggerConfig
 import io.mockk.*
 import org.junit.After
 import org.junit.Assert.*

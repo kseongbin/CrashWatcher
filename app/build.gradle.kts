@@ -7,7 +7,7 @@ plugins {
 val libraryVersion = "1.0.0"
 
 android {
-    namespace = "io.kseongbin.stacktrace"
+    namespace = "io.kseongbin.crashwatcher"
     compileSdk = 36
 
     defaultConfig {
@@ -33,7 +33,7 @@ android {
     libraryVariants.all {
         outputs.all {
             val outputImpl = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
-            val libraryName = "stacktrace"
+            val libraryName = "crashwatcher"
             val buildType = this.name
 
             outputImpl.outputFileName = "${libraryName}-${buildType}-${libraryVersion}.aar"
@@ -60,7 +60,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.kseongbin"
-                artifactId = "stacktrace"
+                artifactId = "crashwatcher"
                 version = libraryVersion
             }
         }

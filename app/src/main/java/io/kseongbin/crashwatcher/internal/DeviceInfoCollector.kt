@@ -1,4 +1,4 @@
-package io.kseongbin.stacktrace.internal
+package io.kseongbin.crashwatcher.internal
 
 import android.app.ActivityManager
 import android.content.Context
@@ -6,8 +6,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Environment
 import android.os.StatFs
-import io.kseongbin.stacktrace.model.AppInfo
-import io.kseongbin.stacktrace.model.DeviceInfo
+import io.kseongbin.crashwatcher.model.AppInfo
+import io.kseongbin.crashwatcher.model.DeviceInfo
 
 internal class DeviceInfoCollector(private val context: Context) {
 
