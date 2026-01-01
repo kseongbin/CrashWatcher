@@ -1,5 +1,11 @@
 # CrashLogger - Android Crash & ANR Detection Library
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![JitPack](https://jitpack.io/v/kseongbin/CrashWatcher.svg)](https://jitpack.io/#kseongbin/CrashWatcher)
+[![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com)
+[![Min SDK](https://img.shields.io/badge/Min%20SDK-26-orange.svg)](https://developer.android.com/about/versions/oreo)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-purple.svg)](https://kotlinlang.org)
+
 안드로이드 앱의 크래시와 ANR(Application Not Responding)을 감지하고 로그를 자동으로 저장하는 경량 라이브러리입니다.
 
 [English Documentation](README.md)
