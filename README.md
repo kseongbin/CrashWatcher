@@ -1,8 +1,10 @@
 # CrashLogger - Android Crash & ANR Detection Library
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![JitPack](https://jitpack.io/v/kseongbin/CrashWatcher.svg)](https://jitpack.io/#kseongbin/CrashWatcher)
 [![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com)
 [![Min SDK](https://img.shields.io/badge/Min%20SDK-26-orange.svg)](https://developer.android.com/about/versions/oreo)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-purple.svg)](https://kotlinlang.org)
 
 A lightweight Android library that automatically detects and logs crashes and ANRs (Application Not Responding) with detailed stack traces and device information.
 
